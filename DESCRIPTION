@@ -17,3 +17,5 @@ Depends:
 Imports:
     randomForest,
     stats
+URL: https://github.com/betheye/m6APrediction
+BugReports: https://github.com/betheye/m6APrediction/issues
