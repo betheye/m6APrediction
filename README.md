@@ -2,27 +2,16 @@
 
 ## Overview
 
-`m6APrediction` is an R package designed to predict N6-methyladenosine
-(m6A) RNA modification sites using a pre-trained random forest model.
-The package provides user-friendly functions for both single-sample and
-batch predictions based on sequence and structural features.
+`m6APrediction` is an R package designed to predict N6-methyladenosine (m6A) RNA modification sites using a pre-trained random forest model. The package provides user-friendly functions for both single-sample and batch predictions based on sequence and structural features.
 
-m6A is one of the most abundant internal modifications in eukaryotic
-mRNA and plays critical roles in RNA metabolism, gene expression
-regulation, and various biological processes. This tool enables
-researchers to efficiently identify potential m6A sites in their RNA
-sequences of interest.
+m6A is one of the most abundant internal modifications in eukaryotic mRNA and plays critical roles in RNA metabolism, gene expression regulation, and various biological processes. This tool enables researchers to efficiently identify potential m6A sites in their RNA sequences of interest.
 
 ## Features
 
--   **Single Sample Prediction**: Predict m6A modification probability
-    for individual RNA sites
--   **Batch Prediction**: Process multiple samples simultaneously for
-    high-throughput analysis
--   **Pre-trained Model**: Uses a validated random forest model trained
-    on experimental m6A data
--   **Feature-based Prediction**: Incorporates multiple sequence and
-    structural features including:
+-   **Single Sample Prediction**: Predict m6A modification probability for individual RNA sites
+-   **Batch Prediction**: Process multiple samples simultaneously for high-throughput analysis
+-   **Pre-trained Model**: Uses a validated random forest model trained on experimental m6A data
+-   **Feature-based Prediction**: Incorporates multiple sequence and structural features including:
     -   GC content
     -   RNA type (mRNA, lincRNA, lncRNA, pseudogene)
     -   RNA region (CDS, intron, 3'UTR, 5'UTR)
@@ -33,8 +22,7 @@ sequences of interest.
 
 ## Installation
 
-You can install the development version of `m6APrediction` from GitHub
-using the `devtools` or `remotes` package:
+You can install the development version of `m6APrediction` from GitHub using the `devtools` or `remotes` package:
 
 ``` r
 # Install devtools if not already installed
@@ -111,8 +99,7 @@ head(predictions)
 
 ### Customizing the Classification Threshold
 
-You can adjust the probability threshold for classifying sites as
-positive:
+You can adjust the probability threshold for classifying sites as positive:
 
 ``` r
 # Use a more stringent threshold
@@ -125,19 +112,15 @@ predictions_stringent <- prediction_multiple(
 
 ## Model Performance
 
-The random forest model demonstrates strong predictive performance on
-independent test data:
+The random forest model demonstrates strong predictive performance on independent test data:
 
 ### ROC Curve
 
-![ROC Curve](/Users/yida/XJTLU/2025-2026sem1/BIO215/W9/ROC_curve.png)
+![](images/clipboard-2571646586.png)
 
 ### Precision-Recall Curve
 
-![PRC Curve](/Users/yida/XJTLU/2025-2026sem1/BIO215/W9/PRC_curve.png)
-
-*Note: Replace the image paths above with the actual paths to your ROC
-and PRC curve images from Practical 4.*
+![](images/clipboard-3990324345.png)
 
 Key performance metrics:
 
@@ -173,8 +156,7 @@ Your input data frame should contain the following columns:
 
 ### For `prediction_single()`
 
-Provide each feature as individual function arguments (see examples
-above).
+Provide each feature as individual function arguments (see examples above).
 
 ## Citation
 
@@ -193,14 +175,10 @@ This package is licensed under the MIT License.
 
 For questions, suggestions, or bug reports, please contact:
 
-\- **Yihan Zhou**:
-[Yihan.Zhou23\@student.xjtlu.edu.cn](mailto:Yihan.Zhou23@student.xjtlu.edu.cn){.email}
+\- **Yihan Zhou**: [Yihan.Zhou23\@student.xjtlu.edu.cn](mailto:Yihan.Zhou23@student.xjtlu.edu.cn){.email}
 
-\- **GitHub Issues**:
-<https://github.com/yourusername/m6APrediction/issues>
+\- **GitHub Issues**: <https://github.com/yourusername/m6APrediction/issues>
 
 ## Acknowledgments
 
-This package was developed as part of the BIO215 Bioinformatics course
-at [Your Institution]. Special thanks to the course instructors and
-collaborators for their guidance and support.
+This package was developed as part of the BIO215 Bioinformatics course at [Your Institution]. Special thanks to the course instructors and collaborators for their guidance and support.
