@@ -74,7 +74,7 @@ result <- prediction_single(
 # View the prediction result
 print(result)
 #  predicted_m6A_prob predicted_m6A_status 
-#              "0.75"           "Positive"
+#              "0.13"           "Negative"
 ```
 
 ### Example 2: Multiple Sample Prediction
