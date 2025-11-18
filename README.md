@@ -158,6 +158,18 @@ Your input data frame should contain the following columns:
 
 Provide each feature as individual function arguments (see examples above).
 
+## Interactive Web Application
+
+Try our **interactive Shiny web application** for easy exploration of m6A predictions without programming:
+
+🔗 **[Launch m6A Prediction Web App](https://yihanzhou23.shinyapps.io/P6_2360960/)**
+
+The web app provides:
+- User-friendly interface for single and batch predictions
+- Interactive visualization of prediction results
+- No R programming knowledge required
+- Immediate results without local installation
+
 ## Citation
 
 If you use `m6APrediction` in your research, please cite:
@@ -177,8 +189,8 @@ For questions, suggestions, or bug reports, please contact:
 
 \- **Yihan Zhou**: [Yihan.Zhou23\@student.xjtlu.edu.cn](mailto:Yihan.Zhou23@student.xjtlu.edu.cn){.email}
 
-\- **GitHub Issues**: <https://github.com/yourusername/m6APrediction/issues>
+\- **GitHub Issues**: <https://github.com/betheye/m6APrediction/issues>
 
 ## Acknowledgments
 
-This package was developed as part of the BIO215 Bioinformatics course at [Your Institution]. Special thanks to the course instructors and collaborators for their guidance and support.
+This package was developed as part of the BIO215 Bioinformatics course at XJTLU. Special thanks to the course instructor for his guidance and support.
