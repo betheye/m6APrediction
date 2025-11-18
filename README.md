@@ -116,11 +116,11 @@ The random forest model demonstrates strong predictive performance on independen
 
 ### ROC Curve
 
-![](images/clipboard-2571646586.png)
+![](images/roc.png)
 
 ### Precision-Recall Curve
 
-![](images/clipboard-3990324345.png)
+![](images/pr.png)
 
 Key performance metrics:
 
@@ -145,7 +145,7 @@ Key performance metrics:
 Your input data frame should contain the following columns:
 
 | Column Name | Type | Description |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `gc_content` | Numeric | GC content of the sequence region (0-1) |
 | `RNA_type` | Character | RNA type: "mRNA", "lincRNA", "lncRNA", or "pseudogene" |
 | `RNA_region` | Character | RNA region: "CDS", "intron", "3'UTR", or "5'UTR" |
