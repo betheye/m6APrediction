@@ -13,9 +13,9 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Depends: 
-    R (>= 3.5.0)
+    R (>= 3.5.0),
+    randomForest
 Imports:
-    randomForest,
     stats
 URL: https://github.com/betheye/m6APrediction
 BugReports: https://github.com/betheye/m6APrediction/issues

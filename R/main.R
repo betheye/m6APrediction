@@ -29,8 +29,15 @@ dna_encoding <- function(dna_strings){
 #'
 #' @param ml_fit A trained random forest model object (e.g., from randomForest package)
 #' @param feature_df A data frame containing the following required columns:
-#'   gc_content, RNA_type, RNA_region, exon_length, distance_to_junction,
-#'   evolutionary_conservation, and DNA_5mer
+#'   \describe{
+#'     \item{gc_content}{Numeric, GC content proportion (0-1)}
+#'     \item{RNA_type}{Character, one of "mRNA", "lincRNA", "lncRNA", "pseudogene"}
+#'     \item{RNA_region}{Character, one of "CDS", "intron", "3'UTR", "5'UTR"}
+#'     \item{exon_length}{Numeric, length of exon in nucleotides}
+#'     \item{distance_to_junction}{Numeric, distance to nearest splice junction}
+#'     \item{evolutionary_conservation}{Numeric, conservation score (0-1)}
+#'     \item{DNA_5mer}{Character, 5-nucleotide DNA sequence (A/T/C/G)}
+#'   }
 #' @param positive_threshold A numeric value between 0 and 1 for classification
 #'   threshold. Sites with probability above this value are classified as
 #'   "Positive" (default: 0.5)
@@ -50,16 +57,32 @@ dna_encoding <- function(dna_strings){
 #' example_df <- read.csv(system.file("extdata", "m6A_input_example.csv",
 #'                                     package = "m6APrediction"))
 #'
-#' # Make predictions for multiple samples
-#' predictions <- prediction_multiple(ml_fit, example_df, positive_threshold = 0.6)
+#' # Make predictions with default threshold (0.5)
+#' predictions <- prediction_multiple(ml_fit, example_df)
+#'
+#' # Use a more stringent threshold
+#' predictions_stringent <- prediction_multiple(ml_fit, example_df, positive_threshold = 0.7)
 #'
 #' # View the first few predictions
 #' head(predictions)
 #'
+#' @seealso \code{\link{prediction_single}} for single sample prediction
 prediction_multiple <- function(ml_fit, feature_df, positive_threshold = 0.5){
   stopifnot(all(c("gc_content", "RNA_type", "RNA_region", "exon_length",
                   "distance_to_junction", "evolutionary_conservation", "DNA_5mer")
                 %in% colnames(feature_df)))
+
+  if (!inherits(ml_fit, "randomForest")) {
+    stop("ml_fit must be a randomForest model object")
+  }
+
+  if (!is.numeric(positive_threshold) || positive_threshold < 0 || positive_threshold > 1) {
+    stop("positive_threshold must be a numeric value between 0 and 1")
+  }
+
+  if (nrow(feature_df) == 0) {
+    stop("feature_df must contain at least one row")
+  }
 
   encoded_seq <- dna_encoding(feature_df$DNA_5mer)
   pred_df <- cbind(feature_df, encoded_seq)
@@ -129,6 +152,7 @@ prediction_multiple <- function(ml_fit, feature_df, positive_threshold = 0.5){
 #' # View the prediction result
 #' print(result)
 #'
+#' @seealso \code{\link{prediction_multiple}} for multiple sample prediction
 prediction_single <- function(ml_fit, gc_content, RNA_type, RNA_region,
                               exon_length, distance_to_junction,
                               evolutionary_conservation, DNA_5mer,

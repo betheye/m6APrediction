@@ -71,3 +71,6 @@ result <- prediction_single(
 print(result)
 
 }
+\seealso{
+\code{\link{prediction_multiple}} for multiple sample prediction
+}
